@@ -13,15 +13,15 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Freelancer
-email: your-email@domain.com
+title: Leonard
+email: null
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-keywords: "your keywords, separated by commas"
-skills: "Web Developer - Graphic Artist - User Experience Designer"
-meta_author: LastName FirstName
+keywords: "leonard, Artist, Athlete"
+skills: "Artist - Athlete"
+meta_author: Leonard Sheng Sheng Lee
 
 # Google webmaster tools
 google_verify:
@@ -30,9 +30,9 @@ google_verify:
 bing_verify:
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username: jekyll
+url: "https://leonardlee.net" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: sheeeng
+github_username: sheeeng
 
 # Contact form:
 # - static : pass through formspree.io to validate email sending
@@ -66,31 +66,31 @@ color:
 
 # Footer settings
 footer:
-  copyright: Dr. Henry Jekyll
+  copyright: Leonard Sheng Sheng Lee
   location: Location
-  social: Around the Web
+  social: Around The Web
   credits: Credits
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   - title: twitter
-    url: http://twitter.com/jekyllrb
+    url: https://bsky.app/profile/sheeeng.bsky.social
   - title: facebook
-    url:
-  - title: stack-overflow
-    url: http://stackoverflow.com/questions/tagged/jekyll
-  - title: bitbucket
-    url: http://bitbucket.org/jekyll
+    url: http://facebook.com/sheeeng
   - title: github
-    url: http://github.com/jekyll
+    url: http://github.com/sheeeng
+  - title: linkedin
+    url: http://www.linkedin.com/in/sheeeng
+  - title: mastodon
+    url: https://hachyderm.io/@leonard
 
 # Postal address (add as many lines as necessary)
 address:
-  - line: 3481 Melrose Place
-  - line: Beverly Hills, CA 90210
+  - line: Etterstadsletta 29B
+  - line: Oslo, Norway
 
 # Credits content
-credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+credits: 'Freelancer is a free to use, open source theme created by <a href="https://github.com/jeromelachaud/freelancer-theme">Jerome Lachaud</a>.'
 
 # For posts
 defaults:
@@ -102,11 +102,14 @@ defaults:
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - .direnv
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - flake.nix
+  - flake.lock
