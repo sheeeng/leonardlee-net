@@ -47,13 +47,13 @@ disqus_shortname: myshortname
 # Build settings
 markdown: kramdown
 permalink: pretty
-theme: freelancer-theme-jekyll
+# theme: freelancer-theme-jekyll  # Custom theme - using layouts directly
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-gist
-  - jekyll-data
+  - jekyll-data # Not supported by GitHub Pages
   - jemoji
 
 # Freelancer Theme Settings
