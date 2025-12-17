@@ -88,8 +88,8 @@ social:
 
 # Postal address (add as many lines as necessary)
 address:
-  - line: Etterstadsletta
-  - line: Oslo, Norway
+  - line: Oslo
+  - line: Norway
 
 # Credits content
 credits: 'Freelancer is a free to use, open source theme created by <a href="https://github.com/jeromelachaud/freelancer-theme">Jerome Lachaud</a>.'
