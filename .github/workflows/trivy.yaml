@@ -3,6 +3,7 @@ name: Trivy
 on:
   push:
     branches:
+      - main
       - unstable
   pull_request:
   schedule:
