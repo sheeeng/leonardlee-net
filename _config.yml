@@ -74,6 +74,8 @@ footer:
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   # keep-sorted start
+  - title: bluesky
+    url: https://bsky.app/profile/sheeeng.bsky.social
   - title: github
     url: http://github.com/sheeeng
   - title: instagram
@@ -82,8 +84,6 @@ social:
     url: http://www.linkedin.com/in/sheeeng
   - title: mastodon
     url: https://hachyderm.io/@leonard
-  - title: twitter
-    url: https://bsky.app/profile/sheeeng.bsky.social
   # keep-sorted end
 
 # Postal address (add as many lines as necessary)

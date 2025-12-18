@@ -6,6 +6,7 @@
 
 body {
     overflow-x: hidden;
+    padding-top: 72px;
 }
 
 p {
@@ -152,6 +153,9 @@ header .intro-text .skills {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
+    background-color: #{{ site.color.secondary }};
+    border: 0;
+    align-items: center;
 }
 
 .navbar a:focus {
