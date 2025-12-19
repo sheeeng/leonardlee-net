@@ -7,7 +7,7 @@ alt:
 project-date: Monday, July 14, 2025
 client:
 category:
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+description: <a href="https://www.imdb.com/name/nm0805598/" target="_blank">Randall Slavin</a> is an acclaimed, award-winning Hollywood photographer and the author of <a href="https://www.amazon.com/We-All-Want-Something-Beautiful/dp/1684019931" target="_blank">"We All Want Something Beautiful"</a>.
 images:
   - path: randall-slavin/DSC0035.jpg
     caption:
