@@ -55,4 +55,17 @@ document.addEventListener('DOMContentLoaded', function () {
     target: '.navbar',
     offset: 70
   });
+
+  // Auto-play carousel when modal opens
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('shown.bs.modal', function () {
+      const carousel = this.querySelector('.carousel');
+      if (carousel) {
+        const bsCarousel = new bootstrap.Carousel(carousel, {
+          interval: 3000,
+          ride: 'carousel'
+        });
+      }
+    });
+  });
 });

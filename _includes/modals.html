@@ -11,7 +11,46 @@
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2 class="mb-4">{{ post.title }}</h2>
+
+            <!-- Carousel for portfolio images -->
+            {% if post.images %}
+            <div id="carousel{{ post.modal-id }}" class="carousel slide carousel-fade mb-4" data-bs-ride="carousel"
+              data-bs-interval="3000">
+              <div class="carousel-indicators">
+                {% for image in post.images %}
+                <button type="button" data-bs-target="#carousel{{ post.modal-id }}"
+                  data-bs-slide-to="{{ forloop.index0 }}" {% if forloop.first %}class="active" aria-current="true" {%
+                  endif %} aria-label="Slide {{ forloop.index }}"></button>
+                {% endfor %}
+              </div>
+              <div class="carousel-inner rounded">
+                {% for image in post.images %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                  <img src="img/portfolio/{{ image.path | default: image }}" class="d-block w-100" alt="{{ post.alt }}">
+                  {% if image.caption %}
+                  <div class="carousel-caption d-none d-md-block">
+                    <p class="bg-dark bg-opacity-75 d-inline-block px-3 py-2 rounded">{{ image.caption }}</p>
+                  </div>
+                  {% endif %}
+                </div>
+                {% endfor %}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ post.modal-id }}"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ post.modal-id }}"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            {% else %}
+            <!-- Fallback to single image if no images array -->
             <img src="img/portfolio/{{ post.img }}" class="img-fluid rounded mb-4" alt="{{ post.alt }}">
+            {% endif %}
+
             {% if post.description %}
             <p class="lead">{{ post.description }}</p>
             {% endif %}
