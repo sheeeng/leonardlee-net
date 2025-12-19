@@ -27,7 +27,7 @@
               {% endif %}
             </div>
             {% if reel.description %}
-            <p class="lead">{{ reel.description }}</p>
+            <p class="lead">{{ reel.description | newline_to_br }}</p>
             {% endif %}
             <div class="mt-4">
               {% if reel.production %}
