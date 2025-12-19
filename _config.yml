@@ -13,14 +13,14 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Leonard
+title: "Leonard Lee"
 email: null
 description: >-
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 keywords: "leonard, actor, anorak, artist, athlete"
-skills: "Analyzing schematics. Studying blue prints. Got the plans right here." # "Actor, Anorak, Artist, & Athlete"
+skills: '' # "Analyzing schematics. Studying blueprints. Got the plans right here." # "Actor, Anorak, Artist, & Athlete"
 meta_author: Leonard Lee
 
 # Google webmaster tools
@@ -71,7 +71,7 @@ footer:
   social: In The Matrix
   credits: Credits
 
-# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+# Social network usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   # keep-sorted start
   - title: bluesky
@@ -92,7 +92,7 @@ address:
   - line: Norway
 
 # Credits content
-credits: 'Freelancer is a free to use, open source theme created by <a href="https://github.com/jeromelachaud/freelancer-theme">Jerome Lachaud</a>.'
+credits: 'This website uses <a href="https://github.com/jeromelachaud/freelancer-theme">Freelancer</a>, a free-to-use, open-source Bootstrap theme.'
 
 # For posts
 defaults:

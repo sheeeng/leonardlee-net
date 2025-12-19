@@ -1,0 +1,26 @@
+<!-- Showreels Section -->
+<section id="showreels" class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="display-4 fw-bold">Showreels</h2>
+        <p class="lead text-muted">Video highlights of my work</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      {% for reel in site.data.showreels %}
+      <div class="col-lg-6 col-md-6">
+        <div class="showreel-item" role="button" data-bs-toggle="modal" data-bs-target="#showreelModal{{ reel.id }}">
+          <div class="ratio ratio-16x9 rounded overflow-hidden">
+            <img src="img/showreels/{{ reel.thumbnail }}" class="img-fluid" alt="{{ reel.title }}">
+            <div class="showreel-overlay rounded">
+              <i class="fa-solid fa-circle-play"></i>
+            </div>
+          </div>
+          <h5 class="mt-3 text-center">{{ reel.title }}</h5>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

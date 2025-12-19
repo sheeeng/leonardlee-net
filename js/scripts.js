@@ -1,54 +1,58 @@
-/*!
-* Start Bootstrap - Freelancer v7.0.7 (https://startbootstrap.com/theme/freelancer)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
-*/
-//
-// Scripts
-//
+// Custom JavaScript for Actor Portfolio using Bootstrap 5
 
-window.addEventListener('DOMContentLoaded', event => {
+document.addEventListener('DOMContentLoaded', function () {
 
-  // Navbar shrink function
-  var navbarShrink = function () {
-    const navbarCollapsible = document.body.querySelector('#mainNav');
-    if (!navbarCollapsible) {
-      return;
-    }
-    if (window.scrollY === 0) {
-      navbarCollapsible.classList.remove('navbar-shrink')
-    } else {
-      navbarCollapsible.classList.add('navbar-shrink')
-    }
-
-  };
-
-  // Shrink the navbar
-  navbarShrink();
-
-  // Shrink the navbar when page is scrolled
-  document.addEventListener('scroll', navbarShrink);
-
-  // Activate Bootstrap scrollspy on the main nav element
-  const mainNav = document.body.querySelector('#mainNav');
-  if (mainNav) {
-    new bootstrap.ScrollSpy(document.body, {
-      target: '#mainNav',
-      rootMargin: '0px 0px -40%',
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = this.getAttribute('href');
+      if (target !== '#' && target !== '#page-top') {
+        e.preventDefault();
+        const element = document.querySelector(target);
+        if (element) {
+          const navbarHeight = document.querySelector('.navbar').offsetHeight;
+          const targetPosition = element.offsetTop - navbarHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      } else if (target === '#page-top') {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
     });
-  };
+  });
 
-  // Collapse responsive navbar when toggler is visible
-  const navbarToggler = document.body.querySelector('.navbar-toggler');
-  const responsiveNavItems = [].slice.call(
-    document.querySelectorAll('#navbarResponsive .nav-link')
-  );
-  responsiveNavItems.map(function (responsiveNavItem) {
-    responsiveNavItem.addEventListener('click', () => {
-      if (window.getComputedStyle(navbarToggler).display !== 'none') {
+  // Navbar scroll effect
+  window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 100) {
+      navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+    } else {
+      navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    }
+  });
+
+  // Close responsive navbar on link click
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navbarCollapse && navbarCollapse.classList.contains('show')) {
         navbarToggler.click();
       }
     });
   });
 
+  // Initialize Bootstrap ScrollSpy
+  const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+    target: '.navbar',
+    offset: 70
+  });
 });
