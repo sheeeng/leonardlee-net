@@ -40,7 +40,8 @@
               <p><strong>Year:</strong> {{ reel.year }}</p>
               {% endif %}
               {% if reel.director %}
-              <p><strong>Director:</strong> {{ reel.director }}</p>
+              <p><strong>Director:</strong> {% if reel.director_url %}<a href="{{ reel.director_url }}" target="_blank"
+                  rel="noopener noreferrer">{{ reel.director }}</a>{% else %}{{ reel.director }}{% endif %}</p>
               {% endif %}
             </div>
           </div>
