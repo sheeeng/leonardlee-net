@@ -2,7 +2,7 @@
 layout: default
 modal-id: 3
 date: 2025-04-21
-img: akira-harigae/portrait/AHV07373.jpg
+img: akira-harigae/portrait/AHV07373-Edit.png
 alt:
 project-date: Monday, 21 April 2025
 client:
