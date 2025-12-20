@@ -35,10 +35,11 @@ twitter_username: sheeeng
 github_username: sheeeng
 
 # Contact form:
+# - static : display static text placeholder with mobile and email
 # - formspree : pass through formspree.io to validate email sending
 # - disqus : replace contact form by disqus thread
 # - comment the line below if you want to stick with the default PHP contact form
-contact: formspree
+contact: static
 
 # If you use disqus you need disqus shortname
 # https://help.disqus.com/customer/portal/articles/466208
