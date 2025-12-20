@@ -4,7 +4,7 @@ modal-id: 1
 date: 2025-04-18
 img: samurai-armor-photo-studio/portrait/DSC_7891.JPG
 alt:
-project-date: Friday, December 20, 2025
+project-date: Friday, April 18, 2025
 client:
 category:
 description:  Photographs taken by <a href="https://samurai.bz/" target="_blank">サムライアーマーフォトスタジオ Samurai Armor Photo Studio</a>.
