@@ -9,15 +9,15 @@ client:
 category:
 description: Photographs taken by <a href="https://www.instagram.com/akiraharigae/" target="_blank">Akira Harigae</a>.
 portrait_images:
-  - path: akira-harigae/portrait/AHV07373.jpg
+  - path: akira-harigae/portrait/AHV07373.webp
     caption:
-  - path: akira-harigae/portrait/AHV07396.jpg
+  - path: akira-harigae/portrait/AHV07396.webp
     caption:
-  - path: akira-harigae/portrait/AHV07400.jpg
+  - path: akira-harigae/portrait/AHV07400.webp
     caption:
 landscape_images:
-  - path: akira-harigae/landscape/AHV07356.jpg
+  - path: akira-harigae/landscape/AHV07356.webp
     caption:
-  - path: akira-harigae/landscape/AHV07405.jpg
+  - path: akira-harigae/landscape/AHV07405.webp
     caption:
 ---
