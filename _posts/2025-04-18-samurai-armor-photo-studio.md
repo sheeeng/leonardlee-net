@@ -2,7 +2,7 @@
 layout: default
 modal-id: 1
 date: 2025-04-18
-img: samurai-armor-photo-studio/portrait/DSC_7891.JPG
+img: samurai-armor-photo-studio/portrait/DSC_7891.webp
 alt:
 project-date: Friday, April 18, 2025
 client:

@@ -2,7 +2,7 @@
 layout: default
 modal-id: 2
 date: 2025-07-14
-img: randall-slavin/portrait/DSC0035.jpg
+img: randall-slavin/portrait/DSC0035.webp
 alt:
 project-date: Monday, July 14, 2025
 client:
