@@ -1,7 +1,7 @@
 - id: 1
   title: "Lars and the Real Girl: \"Meeting Bianca\" Scene"
   # thumbnail: "https://img.youtube.com/vi/gI2I_A2LVCU/maxresdefault.jpg"
-  thumbnail: "reel1-thumb.jpg"
+  thumbnail: "reel1-thumb.webp"
   youtube_id: "gI2I_A2LVCU"
   vimeo_id: ""
   video_url: ""
@@ -22,7 +22,7 @@
 - id: 2
   title: "Mad Men: The Strategy (Season 7, Episode 6): \"Burger Chef's Pitch\" Scene"
   # thumbnail: "https://img.youtube.com/vi/04mzPn2_APg/maxresdefault.jpg"
-  thumbnail: "reel2-thumb.jpg"
+  thumbnail: "reel2-thumb.webp"
   youtube_id: "04mzPn2_APg"
   vimeo_id: ""
   video_url: ""
