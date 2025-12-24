@@ -27,7 +27,8 @@
               <div class="carousel-inner rounded">
                 {% for image in post.portrait_images %}
                 <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                  <img src="img/portfolio/{{ image.path | default: image }}" class="d-block w-100" alt="{{ post.alt }}">
+                  <img src="img/portfolio/{{ image.path | default: image }}" class="d-block w-100" alt="{{ post.alt }}"
+                    loading="lazy">
                   {% if image.caption %}
                   <div class="carousel-caption d-none d-md-block">
                     <p class="bg-dark bg-opacity-75 d-inline-block px-3 py-2 rounded">{{ image.caption }}</p>
@@ -64,7 +65,8 @@
               <div class="carousel-inner rounded">
                 {% for image in post.landscape_images %}
                 <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                  <img src="img/portfolio/{{ image.path | default: image }}" class="d-block w-100" alt="{{ post.alt }}">
+                  <img src="img/portfolio/{{ image.path | default: image }}" class="d-block w-100" alt="{{ post.alt }}"
+                    loading="lazy">
                   {% if image.caption %}
                   <div class="carousel-caption d-none d-md-block">
                     <p class="bg-dark bg-opacity-75 d-inline-block px-3 py-2 rounded">{{ image.caption }}</p>
@@ -100,7 +102,8 @@
               <div class="carousel-inner rounded">
                 {% for image in post.images %}
                 <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                  <img src="img/portfolio/{{ image.path | default: image }}" class="d-block w-100" alt="{{ post.alt }}">
+                  <img src="img/portfolio/{{ image.path | default: image }}" class="d-block w-100" alt="{{ post.alt }}"
+                    loading="lazy">
                   {% if image.caption %}
                   <div class="carousel-caption d-none d-md-block">
                     <p class="bg-dark bg-opacity-75 d-inline-block px-3 py-2 rounded">{{ image.caption }}</p>
@@ -124,7 +127,7 @@
 
             <!-- Fallback to single image if no arrays -->
             {% unless post.portrait_images or post.landscape_images or post.images %}
-            <img src="img/portfolio/{{ post.img }}" class="img-fluid rounded mb-4" alt="{{ post.alt }}">
+            <img src="img/portfolio/{{ post.img }}" class="img-fluid rounded mb-4" alt="{{ post.alt }}" loading="lazy">
             {% endunless %}
 
             {% if post.description %}
