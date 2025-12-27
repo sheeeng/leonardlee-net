@@ -26,7 +26,6 @@
 
   <!-- Resource hints for faster loading -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
@@ -78,22 +77,8 @@
   <!-- Bootstrap 5.3.8 with Bootswatch Lux Theme -->
   <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/lux/bootstrap.min.css" rel="stylesheet">
 
-  <!--
-    curl --silent https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.1.0/css/all.min.css | openssl dgst -sha512 -binary | openssl base64 -A
-  -->
-  <!-- FontAwesome 7.1.0 Free - Deferred -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.1.0/css/all.min.css" as="style"
-    onload="this.onload=null;this.rel='stylesheet'"
-    integrity="sha512-c7v2mEghMrX9YKC1iSb93skFX4CVpTvFJxTiEek0DDQZc2zq/WsnlmeBARTTBr/M3Pzd9RwLZ/6ePHPFRYPldA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.1.0/css/all.min.css"
-      integrity="sha512-c7v2mEghMrX9YKC1iSb93skFX4CVpTvFJxTiEek0DDQZc2zq/WsnlmeBARTTBr/M3Pzd9RwLZ/6ePHPFRYPldA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer">
-  </noscript>
-
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="custom.css">
+  <link rel="stylesheet" href="{{ '/css/custom.css' | relative_url }}">
 
   <link rel="me" href="https://hachyderm.io/@leonard">
 
@@ -123,6 +108,19 @@
   <!-- Bing Verification -->
   {% if site.bing_verify %}
   <meta name="msvalidate.01" content="{{ site.bing_verify }}">{% endif %}
+
+  <!-- FontAwesome 7.1.0 - Self-hosted -->
+  <link rel="preload" href="{{ '/css/fontawesome.min.css' | relative_url }}" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="{{ '/css/solid.min.css' | relative_url }}" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="{{ '/css/brands.min.css' | relative_url }}" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="{{ '/css/fontawesome.min.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/css/solid.min.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/css/brands.min.css' | relative_url }}">
+  </noscript>
 
   <!-- Google Fonts - Preloaded -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"
