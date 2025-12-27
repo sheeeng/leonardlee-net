@@ -12,8 +12,10 @@
       <div class="col-lg-6 col-md-6">
         <div class="showreel-item" role="button" data-bs-toggle="modal" data-bs-target="#showreelModal{{ reel.id }}">
           <div class="ratio ratio-16x9 rounded overflow-hidden">
-            <img src="img/showreels/{{ reel.thumbnail }}" class="img-fluid" alt="{{ reel.title }}" {% if forloop.index
-              <=2 %}loading="eager" {% else %}loading="lazy" {% endif %}>
+            {% assign thumb_base = reel.thumbnail | remove: '.webp' %}
+            <img srcset="img/showreels/{{ thumb_base }}-400w.webp 400w, img/showreels/{{ thumb_base }}-800w.webp 800w"
+              sizes="(max-width: 768px) 100vw, 50vw" src="img/showreels/{{ reel.thumbnail }}" class="img-fluid"
+              alt="{{ reel.title }}" {% if forloop.index <=2 %}loading="eager" {% else %}loading="lazy" {% endif %}>
             <div class="showreel-overlay rounded">
               <i class="fa-solid fa-circle-play"></i>
             </div>
