@@ -74,8 +74,12 @@
     }
   </style>
 
-  <!-- Bootstrap 5.3.8 with Bootswatch Lux Theme -->
-  <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/lux/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap 5.3.8 with Bootswatch Lux Theme - Deferred -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/lux/bootstrap.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/lux/bootstrap.min.css" rel="stylesheet">
+  </noscript>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ '/css/custom.css' | relative_url }}">
