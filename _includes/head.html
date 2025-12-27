@@ -24,13 +24,73 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="feed.xml">
 
+  <!-- Resource hints for faster loading -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  <!-- Critical CSS inline for instant render -->
+  <style>
+    body {
+      font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      margin: 0
+    }
+
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      margin-top: 0;
+      overflow: hidden
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 0
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1
+    }
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.8) !important
+    }
+  </style>
+
   <!-- Bootstrap 5.3.8 with Bootswatch Lux Theme -->
   <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.8/dist/lux/bootstrap.min.css" rel="stylesheet">
 
-  <!-- FontAwesome 7 Free -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!--
+    curl --silent https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.1.0/css/all.min.css | openssl dgst -sha512 -binary | openssl base64 -A
+  -->
+  <!-- FontAwesome 7.1.0 Free - Deferred -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.1.0/css/all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+    integrity="sha512-c7v2mEghMrX9YKC1iSb93skFX4CVpTvFJxTiEek0DDQZc2zq/WsnlmeBARTTBr/M3Pzd9RwLZ/6ePHPFRYPldA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.1.0/css/all.min.css"
+      integrity="sha512-c7v2mEghMrX9YKC1iSb93skFX4CVpTvFJxTiEek0DDQZc2zq/WsnlmeBARTTBr/M3Pzd9RwLZ/6ePHPFRYPldA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+  </noscript>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="custom.css">
@@ -64,9 +124,13 @@
   {% if site.bing_verify %}
   <meta name="msvalidate.01" content="{{ site.bing_verify }}">{% endif %}
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"
-    rel="stylesheet">
+  <!-- Google Fonts - Preloaded -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet">
+  </noscript>
 
   <!-- Google Analytics -->
   {% if site.google_analytics %}
