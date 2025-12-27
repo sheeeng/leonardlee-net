@@ -5,7 +5,7 @@
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header border-0">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close."></button>
       </div>
       <div class="modal-body p-4">
         <div class="row">
@@ -21,7 +21,7 @@
                 {% for image in post.portrait_images %}
                 <button type="button" data-bs-target="#carouselPortrait{{ post.modal-id }}"
                   data-bs-slide-to="{{ forloop.index0 }}" {% if forloop.first %}class="active" aria-current="true" {%
-                  endif %} aria-label="Slide {{ forloop.index }}"></button>
+                  endif %} aria-label="Slide {{ forloop.index }}."></button>
                 {% endfor %}
               </div>
               <div class="carousel-inner rounded">
@@ -59,7 +59,7 @@
                 {% for image in post.landscape_images %}
                 <button type="button" data-bs-target="#carouselLandscape{{ post.modal-id }}"
                   data-bs-slide-to="{{ forloop.index0 }}" {% if forloop.first %}class="active" aria-current="true" {%
-                  endif %} aria-label="Slide {{ forloop.index }}"></button>
+                  endif %} aria-label="Slide {{ forloop.index }}."></button>
                 {% endfor %}
               </div>
               <div class="carousel-inner rounded">
@@ -96,7 +96,7 @@
                 {% for image in post.images %}
                 <button type="button" data-bs-target="#carousel{{ post.modal-id }}"
                   data-bs-slide-to="{{ forloop.index0 }}" {% if forloop.first %}class="active" aria-current="true" {%
-                  endif %} aria-label="Slide {{ forloop.index }}"></button>
+                  endif %} aria-label="Slide {{ forloop.index }}."></button>
                 {% endfor %}
               </div>
               <div class="carousel-inner rounded">

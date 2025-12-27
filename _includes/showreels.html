@@ -10,7 +10,8 @@
     <div class="row g-4">
       {% for reel in site.data.showreels %}
       <div class="col-lg-6 col-md-6">
-        <div class="showreel-item" role="button" data-bs-toggle="modal" data-bs-target="#showreelModal{{ reel.id }}" aria-label="Play {{ reel.title }} video">
+        <div class="showreel-item" role="button" data-bs-toggle="modal" data-bs-target="#showreelModal{{ reel.id }}"
+          aria-label="Play {{ reel.title }} video.">
           <div class="ratio ratio-16x9 rounded overflow-hidden">
             {% assign thumb_base = reel.thumbnail | remove: '.webp' %}
             <img srcset="img/showreels/{{ thumb_base }}-400w.webp 400w, img/showreels/{{ thumb_base }}-800w.webp 800w"
