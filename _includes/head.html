@@ -95,6 +95,9 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="custom.css">
 
+  <!-- Lite YouTube Embed - Defer YouTube loading -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/justinribeiro/lite-youtube@1.9.0/lite-youtube.css">
+
   <link rel="me" href="https://hachyderm.io/@leonard">
 
   <!-- Favicon and App Icons
@@ -134,12 +137,19 @@
 
   <!-- Google Analytics -->
   {% if site.google_analytics %}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', '{{ site.google_analytics }}');
+    // Defer GA until after page load
+    window.addEventListener('load', function () {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}';
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', '{{ site.google_analytics }}');
+    });
   </script>
   {% endif %}
 </head>
