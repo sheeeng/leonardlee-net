@@ -13,12 +13,9 @@
           <div class="col-lg-10 mx-auto">
             <div class="ratio ratio-16x9 mb-4">
               {% if reel.youtube_id %}
-              <lite-youtube videoid="{{ reel.youtube_id }}" title="{{ reel.title }}" class="rounded">
-                <a href="https://www.youtube.com/watch?v={{ reel.youtube_id }}" target="_blank"
-                  rel="noopener noreferrer">
-                  Watch on YouTube.
-                </a>
-              </lite-youtube>
+              <iframe src="https://www.youtube.com/embed/{{ reel.youtube_id }}" title="{{ reel.title }}" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen class="rounded"></iframe>
               {% elsif reel.vimeo_id %}
               <iframe src="https://player.vimeo.com/video/{{ reel.vimeo_id }}" title="{{ reel.title }}" frameborder="0"
                 allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="rounded"></iframe>
