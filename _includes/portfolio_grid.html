@@ -12,7 +12,8 @@
       <div class="col-lg-4 col-md-6">
         <div class="portfolio-item" role="button" data-bs-toggle="modal"
           data-bs-target="#portfolioModal{{ post.modal-id }}">
-          <img src="img/portfolio/{{ post.img }}" class="img-fluid rounded" alt="{{ post.alt }}" loading="lazy">
+          <img src="img/portfolio/{{ post.img }}" class="img-fluid rounded" alt="{{ post.alt }}" {% if forloop.index <=6
+            %}loading="eager" {% else %}loading="lazy" {% endif %}>
           <div class="portfolio-overlay rounded">
             <i class="fa-solid fa-magnifying-glass-plus"></i>
           </div>
