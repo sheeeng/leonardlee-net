@@ -13,7 +13,8 @@
         <div class="portfolio-item" role="button" data-bs-toggle="modal"
           data-bs-target="#portfolioModal{{ post.modal-id }}" aria-label="View {{ post.title }} gallery.">
           {% assign img_base = post.img | remove: '.webp' %}
-          <img srcset="img/portfolio/{{ img_base }}-400w.webp 400w, img/portfolio/{{ img_base }}-800w.webp 800w"
+          <img
+            srcset="img/portfolio/{{ img_base }}-400w.webp 400w, img/portfolio/{{ img_base }}-600w.webp 600w, img/portfolio/{{ img_base }}-800w.webp 800w"
             sizes="(max-width: 768px) 100vw, (max-width: 992px) 50vw, 33vw" src="img/portfolio/{{ post.img }}"
             class="img-fluid rounded" alt="{{ post.alt }}" {% if forloop.index <=6 %}loading="eager" {% else
             %}loading="lazy" {% endif %}>
