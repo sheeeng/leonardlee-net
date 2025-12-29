@@ -10,11 +10,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Scroll to top for #page-top or empty #
       if (target === '#page-top' || target === '#') {
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: 'smooth'
-        });
+        // Force scroll to absolute top
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        window.scrollTo(0, 0); // Fallback
         return;
       }
 
