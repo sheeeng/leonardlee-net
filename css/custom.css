@@ -237,7 +237,9 @@ footer .social-buttons {
 }
 
 footer .btn-social,
-footer .btn-outline {
+footer .btn-outline,
+#contact .btn-social,
+#contact .btn-outline {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -248,10 +250,21 @@ footer .btn-outline {
   justify-content: center;
   transition: all 0.3s ease;
   margin: 0 5px;
+  text-decoration: none;
+}
+
+footer .btn-social,
+footer .btn-outline {
   border: 2px solid #ffffff;
   color: #ffffff;
   background-color: transparent;
-  text-decoration: none;
+}
+
+#contact .btn-social,
+#contact .btn-outline {
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  background-color: transparent;
 }
 
 footer .btn-social:hover,
@@ -260,6 +273,14 @@ footer .btn-outline:hover {
   box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
   background-color: #ffffff;
   color: #000000;
+}
+
+#contact .btn-social:hover,
+#contact .btn-outline:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(15, 52, 96, 0.3);
+  background-color: var(--accent-color);
+  color: #ffffff;
 }
 
 /* Responsive adjustments */
