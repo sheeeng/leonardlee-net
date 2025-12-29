@@ -5,22 +5,26 @@ document.addEventListener('DOMContentLoaded', function () {
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+      e.preventDefault();
       const target = this.getAttribute('href');
-      if (target !== '#' && target !== '#page-top') {
-        e.preventDefault();
-        const element = document.querySelector(target);
-        if (element) {
-          const navbarHeight = document.querySelector('.navbar').offsetHeight;
-          const targetPosition = element.offsetTop - navbarHeight;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      } else if (target === '#page-top') {
-        e.preventDefault();
+
+      // Scroll to top for #page-top or empty #
+      if (target === '#page-top' || target === '#') {
         window.scrollTo({
           top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
+        return;
+      }
+
+      // Scroll to specific section
+      const element = document.querySelector(target);
+      if (element) {
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+        const targetPosition = element.offsetTop - navbarHeight;
+        window.scrollTo({
+          top: targetPosition,
           behavior: 'smooth'
         });
       }
