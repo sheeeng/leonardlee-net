@@ -25,22 +25,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       } else if (target === '#page-top' || target === '#') {
         e.preventDefault();
+        e.stopPropagation();
 
-        // Try smooth scroll first, fallback to instant scroll for Firefox Focus
-        try {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        } catch (e) {
-          window.scrollTo(0, 0);
-        }
+        // Force immediate scroll to top - Firefox Focus compatible
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        window.scrollTo(0, 0);
 
-        // Additional fallback: use document methods
-        if (window.pageYOffset !== 0) {
-          document.body.scrollTop = 0; // For Safari
-          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
+        // Try smooth scroll as enhancement for browsers that support it
+        setTimeout(() => {
+          try {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          } catch (err) {
+            // Smooth scroll not supported, already at top
+          }
+        }, 0);
+
+        return false;
       }
     });
   });
