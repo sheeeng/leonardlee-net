@@ -5,25 +5,22 @@ document.addEventListener('DOMContentLoaded', function () {
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      e.preventDefault();
       const target = this.getAttribute('href');
-
-      // Scroll to top for #page-top or empty #
-      if (target === '#page-top' || target === '#') {
-        // Force scroll to absolute top
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        window.scrollTo(0, 0); // Fallback
-        return;
-      }
-
-      // Scroll to specific section
-      const element = document.querySelector(target);
-      if (element) {
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-        const targetPosition = element.offsetTop - navbarHeight;
+      if (target !== '#' && target !== '#page-top') {
+        e.preventDefault();
+        const element = document.querySelector(target);
+        if (element) {
+          const navbarHeight = document.querySelector('.navbar').offsetHeight;
+          const targetPosition = element.offsetTop - navbarHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      } else if (target === '#page-top') {
+        e.preventDefault();
         window.scrollTo({
-          top: targetPosition,
+          top: 0,
           behavior: 'smooth'
         });
       }
