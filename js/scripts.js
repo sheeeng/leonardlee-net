@@ -2,18 +2,44 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  // Smooth scroll for anchor links
+  // Smooth scroll for anchor links - Firefox Focus compatible
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const target = this.getAttribute('href');
-      if (target !== '#' && target !== '#page-top') {
+
+      // Handle scroll to top
+      if (target === '#page-top' || target === '#') {
+        e.preventDefault();
+
+        // Firefox workaround: Temporarily disable smooth scroll behavior
+        // See: https://github.com/nuxt/nuxt/pull/25817
+        const html = document.documentElement;
+        const originalBehavior = html.style.scrollBehavior;
+        html.style.scrollBehavior = 'auto';
+
+        // Wait for browser repaint before scrolling
+        requestAnimationFrame(() => {
+          window.scrollTo(0, 0);
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+
+          // Restore smooth scroll behavior after scrolling
+          requestAnimationFrame(() => {
+            html.style.scrollBehavior = originalBehavior;
+          });
+        });
+
+        return false;
+      }
+
+      // Handle other anchor links
+      if (target !== '#') {
         e.preventDefault();
         const element = document.querySelector(target);
         if (element) {
           const navbarHeight = document.querySelector('.navbar').offsetHeight;
           const targetPosition = element.offsetTop - navbarHeight;
 
-          // Try smooth scroll first, fallback to instant scroll for Firefox Focus
           try {
             window.scrollTo({
               top: targetPosition,
@@ -23,28 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
             window.scrollTo(0, targetPosition);
           }
         }
-      } else if (target === '#page-top' || target === '#') {
-        e.preventDefault();
-        e.stopPropagation();
-
-        // Force immediate scroll to top - Firefox Focus compatible
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
-        window.scrollTo(0, 0);
-
-        // Try smooth scroll as enhancement for browsers that support it
-        setTimeout(() => {
-          try {
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            });
-          } catch (err) {
-            // Smooth scroll not supported, already at top
-          }
-        }, 0);
-
-        return false;
       }
     });
   });
