@@ -12,17 +12,35 @@ document.addEventListener('DOMContentLoaded', function () {
         if (element) {
           const navbarHeight = document.querySelector('.navbar').offsetHeight;
           const targetPosition = element.offsetTop - navbarHeight;
+
+          // Try smooth scroll first, fallback to instant scroll for Firefox Focus
+          try {
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          } catch (e) {
+            window.scrollTo(0, targetPosition);
+          }
+        }
+      } else if (target === '#page-top' || target === '#') {
+        e.preventDefault();
+
+        // Try smooth scroll first, fallback to instant scroll for Firefox Focus
+        try {
           window.scrollTo({
-            top: targetPosition,
+            top: 0,
             behavior: 'smooth'
           });
+        } catch (e) {
+          window.scrollTo(0, 0);
         }
-      } else if (target === '#page-top') {
-        e.preventDefault();
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
+
+        // Additional fallback: use document methods
+        if (window.pageYOffset !== 0) {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
       }
     });
   });
