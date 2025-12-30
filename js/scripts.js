@@ -2,6 +2,9 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  // Detect Firefox for scroll behavior workaround
+  const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
   // Smooth scroll for anchor links - Firefox Focus compatible
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -11,23 +14,31 @@ document.addEventListener('DOMContentLoaded', function () {
       if (target === '#page-top' || target === '#') {
         e.preventDefault();
 
-        // Firefox workaround: Temporarily disable smooth scroll behavior
-        // See: https://github.com/nuxt/nuxt/pull/25817
-        const html = document.documentElement;
-        const originalBehavior = html.style.scrollBehavior;
-        html.style.scrollBehavior = 'auto';
+        if (isFirefox) {
+          // Firefox workaround: Temporarily disable smooth scroll behavior
+          // See: https://github.com/nuxt/nuxt/pull/25817
+          const html = document.documentElement;
+          const originalBehavior = html.style.scrollBehavior;
+          html.style.scrollBehavior = 'auto';
 
-        // Wait for browser repaint before scrolling
-        requestAnimationFrame(() => {
-          window.scrollTo(0, 0);
-          document.documentElement.scrollTop = 0;
-          document.body.scrollTop = 0;
-
-          // Restore smooth scroll behavior after scrolling
+          // Wait for browser repaint before scrolling
           requestAnimationFrame(() => {
-            html.style.scrollBehavior = originalBehavior;
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+
+            // Restore smooth scroll behavior after scrolling
+            requestAnimationFrame(() => {
+              html.style.scrollBehavior = originalBehavior;
+            });
           });
-        });
+        } else {
+          // For other browsers, use smooth scrolling
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }
 
         return false;
       }
