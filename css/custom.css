@@ -209,6 +209,13 @@ footer {
   padding: 40px 0 20px;
 }
 
+@font-face {
+  font-family: 'Matrix';
+  src: url('../assets/webfonts/matrix.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 footer h3 {
   color: #ffffff;
   font-size: 1.2rem;
@@ -216,6 +223,10 @@ footer h3 {
   margin-top: 2rem;
   margin-bottom: 1rem;
   text-transform: uppercase;
+}
+
+footer h3.matrix-font {
+  font-family: 'Matrix', monospace;
 }
 
 footer p {
