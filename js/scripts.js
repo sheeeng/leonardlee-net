@@ -2,6 +2,12 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  // Detect Firefox Focus specifically
+  // iOS: FxiOS token, Android/macOS: Focus token
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/User-Agent/Firefox
+  const userAgent = navigator.userAgent;
+  const isFirefoxFocus = userAgent.includes('FxiOS') || userAgent.includes('Focus');
+
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -17,8 +23,30 @@ document.addEventListener('DOMContentLoaded', function () {
             behavior: 'smooth'
           });
         }
-      } else if (target === '#page-top') {
+      } else if (target === '#page-top' || target === '#') {
         e.preventDefault();
+
+        if (isFirefoxFocus) {
+          // Firefox Focus workaround: Temporarily disable smooth scroll behavior
+          // See: https://github.com/nuxt/nuxt/pull/25817
+          const html = document.documentElement;
+          const originalBehavior = html.style.scrollBehavior;
+          html.style.scrollBehavior = 'auto';
+
+          // Wait for browser repaint before scrolling
+          requestAnimationFrame(() => {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+
+            // Restore smooth scroll behavior after scrolling
+            requestAnimationFrame(() => {
+              html.style.scrollBehavior = originalBehavior;
+            });
+          });
+        }
+
+        // For all other browsers, use smooth scrolling
         window.scrollTo({
           top: 0,
           behavior: 'smooth'
