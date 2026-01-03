@@ -78,8 +78,10 @@ footer:
 # Social network usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   # keep-sorted start
-  - title: bluesky
-    url: https://bsky.app/profile/sheeeng.bsky.social
+  # - title: bluesky
+  #   url: https://bsky.app/profile/sheeeng.bsky.social
+  - title: blogger
+    url: https://sheeeng.github.io
   - title: github
     url: http://github.com/sheeeng
   - title: instagram
