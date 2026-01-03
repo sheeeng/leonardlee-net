@@ -16,11 +16,11 @@
 title: "Leonard Lee"
 email: null
 description: >-
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-keywords: "leonard, actor, anorak, artist, athlete"
-skills: '' # "Analyzing schematics. Studying blueprints. Got the plans right here." # "Actor, Anorak, Artist, & Athlete"
+  Actor, artist, athlete and computer scientist based in Oslo, Norway. Leonard Lee bridges
+  the creative and technical worlds through storytelling, performance, and innovative
+  solutions. Passionate about connecting people through art and technology.
+keywords: "leonard, actor, artist, athlete, computer scientist, oslo, norway"
+skills: '' # "Analyzing schematics. Studying blueprints. Got the plans right here." # "Actor, Artist, & Athlete"
 meta_author: Leonard Lee
 
 # Google webmaster tools
