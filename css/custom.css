@@ -245,6 +245,40 @@ footer a {
   text-decoration: none;
 }
 
+/* Snow toggle button */
+#snowToggle {
+  font-size: 0.9rem;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+#snowToggle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+#snowToggle.active {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 footer .social-buttons {
   margin: 20px 0;
 }
