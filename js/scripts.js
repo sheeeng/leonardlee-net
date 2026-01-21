@@ -103,61 +103,77 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Snowfall Animation
 function createSnowfall() {
-  const canvas = document.createElement('canvas');
-  canvas.id = 'snowCanvas';
-  canvas.style.position = 'fixed';
-  canvas.style.top = '0';
-  canvas.style.left = '0';
-  canvas.style.width = '100%';
-  canvas.style.height = '100%';
-  canvas.style.pointerEvents = 'none';
-  canvas.style.zIndex = '9999';
-  document.body.appendChild(canvas);
+  const container = document.createElement('div');
+  container.id = 'snowContainer';
+  container.style.position = 'fixed';
+  container.style.top = '0';
+  container.style.left = '0';
+  container.style.width = '100%';
+  container.style.height = '100%';
+  container.style.pointerEvents = 'none';
+  container.style.zIndex = '9999';
+  container.style.overflow = 'hidden';
+  document.body.appendChild(container);
 
-  const ctx = canvas.getContext('2d');
   let snowflakes = [];
   let animationId;
 
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-
   function Snowflake() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * -canvas.height;
-    this.radius = Math.random() * 3 + 1;
+    this.element = document.createElement('i');
+    this.element.className = 'fa-solid fa-snowflake';
+    this.element.style.position = 'absolute';
+    this.element.style.color = '#ffffff';
+    this.element.style.pointerEvents = 'none';
+
+    this.x = Math.random() * window.innerWidth;
+    this.y = Math.random() * -window.innerHeight;
+    this.size = Math.random() * 15 + 10;
     this.speed = Math.random() * 1 + 0.5;
     this.wind = Math.random() * 0.5 - 0.25;
     this.opacity = Math.random() * 0.6 + 0.4;
+    this.rotation = Math.random() * 360;
+    this.rotationSpeed = Math.random() * 2 - 1;
+
+    this.element.style.fontSize = this.size + 'px';
+    this.element.style.opacity = this.opacity;
+    this.element.style.left = this.x + 'px';
+    this.element.style.top = this.y + 'px';
+    this.element.style.transform = `rotate(${this.rotation}deg)`;
+
+    container.appendChild(this.element);
   }
 
   Snowflake.prototype.update = function () {
     this.y += this.speed;
     this.x += this.wind;
+    this.rotation += this.rotationSpeed;
 
     // Reset snowflake when it goes off screen
-    if (this.y > canvas.height) {
-      this.y = -10;
-      this.x = Math.random() * canvas.width;
+    if (this.y > window.innerHeight) {
+      this.y = -20;
+      this.x = Math.random() * window.innerWidth;
     }
 
-    if (this.x > canvas.width) {
+    if (this.x > window.innerWidth) {
       this.x = 0;
     } else if (this.x < 0) {
-      this.x = canvas.width;
+      this.x = window.innerWidth;
     }
-  };
 
-  Snowflake.prototype.draw = function () {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-    ctx.fill();
+    this.element.style.left = this.x + 'px';
+    this.element.style.top = this.y + 'px';
+    this.element.style.transform = `rotate(${this.rotation}deg)`;
   };
 
   function initSnowflakes() {
-    const numberOfSnowflakes = Math.floor((canvas.width * canvas.height) / 10000);
+    // Clear existing snowflakes
+    snowflakes.forEach(snowflake => {
+      if (snowflake.element.parentNode) {
+        snowflake.element.parentNode.removeChild(snowflake.element);
+      }
+    });
+
+    const numberOfSnowflakes = Math.floor((window.innerWidth * window.innerHeight) / 15000);
     snowflakes = [];
     for (let i = 0; i < numberOfSnowflakes; i++) {
       snowflakes.push(new Snowflake());
@@ -165,36 +181,31 @@ function createSnowfall() {
   }
 
   function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     snowflakes.forEach(snowflake => {
       snowflake.update();
-      snowflake.draw();
     });
 
     animationId = requestAnimationFrame(animate);
   }
 
-  resizeCanvas();
   initSnowflakes();
 
   // Start with snow disabled
-  canvas.style.display = 'none';
+  container.style.display = 'none';
 
   // Handle window resize
   window.addEventListener('resize', function () {
-    resizeCanvas();
     initSnowflakes();
   });
 
   // Toggle function
   function toggleSnow() {
-    if (canvas.style.display === 'none') {
-      canvas.style.display = 'block';
+    if (container.style.display === 'none') {
+      container.style.display = 'block';
       animate();
       return true;
     } else {
-      canvas.style.display = 'none';
+      container.style.display = 'none';
       cancelAnimationFrame(animationId);
       return false;
     }
