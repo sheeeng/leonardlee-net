@@ -1,3 +1,7 @@
+---
+sitemap: false
+---
+
 # AGENTS
 
 - Ensure adherence to Chicago Manual of Style by maintaining correct grammar and using proper punctuation in all comments and documentation.

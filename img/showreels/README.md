@@ -1,3 +1,7 @@
+---
+sitemap: false
+---
+
 # Showreel Thumbnails
 
 This directory contains thumbnail images for the showreel videos.
@@ -31,7 +35,7 @@ Example:
 - id: 1
   title: "Acting Demo Reel 2024"
   thumbnail: "reel1-thumb.jpg"
-  youtube_id: "dQw4w9WgXcQ"  # YouTube video ID
+  youtube_id: "dQw4w9WgXcQ" # YouTube video ID
   vimeo_id: ""
   video_url: ""
 ```

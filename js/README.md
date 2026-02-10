@@ -1,3 +1,7 @@
+---
+sitemap: false
+---
+
 # README
 
 [Download][download-bootstrap] [bootstrap][bootstrap] JS files.

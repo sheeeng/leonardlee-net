@@ -1,3 +1,7 @@
+---
+sitemap: false
+---
+
 # getavataaars
 
 See [getavataaars][getavataaars].
@@ -8,24 +12,23 @@ See [getavataaars][getavataaars].
 
 ```js
 <Avatar
-  avatarStyle='Circle'
-  topType='ShortHairShortFlat'
-  accessoriesType='Blank'
-  hairColor='BrownDark'
-  facialHairType='Blank'
-  clotheType='BlazerShirt'
-  eyeType='Happy'
-  eyebrowType='DefaultNatural'
-  mouthType='Smile'
-  skinColor='Pale'
+  avatarStyle="Circle"
+  topType="ShortHairShortFlat"
+  accessoriesType="Blank"
+  hairColor="BrownDark"
+  facialHairType="Blank"
+  clotheType="BlazerShirt"
+  eyeType="Happy"
+  eyebrowType="DefaultNatural"
+  mouthType="Smile"
+  skinColor="Pale"
 />
 ```
 
 ## HTML
 
 ```js
-<img src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Happy&eyebrowType=DefaultNatural&mouthType=Smile&skinColor=Pale'
-/>
+<img src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortFlat&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Happy&eyebrowType=DefaultNatural&mouthType=Smile&skinColor=Pale" />
 ```
 
 ## Commands
