@@ -1,0 +1,16 @@
+# Allow search engine indexing for ranking.
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block Wayback Machine / Internet Archive.
+User-agent: ia_archiver
+Disallow: /
+
+# Block all other bots.
+User-agent: *
+Disallow: /
+
+Sitemap: https://leonardlee.net/sitemap.xml
