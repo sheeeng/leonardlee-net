@@ -1,7 +1,8 @@
-# Allow search engine indexing for ranking.
+# Allow Google Search crawlers.
 User-agent: Googlebot
 Allow: /
 
+# Allow Bing crawlers.
 User-agent: Bingbot
 Allow: /
 
@@ -9,8 +10,24 @@ Allow: /
 User-agent: ia_archiver
 Disallow: /
 
-# Block all other bots.
+User-agent: ia_archiver-web.archive.org
+Disallow: /
+
+User-agent: archive.org_bot
+Disallow: /
+
+# Block all images on your site from Google Images.
+# https://developers.google.com/crawling/docs/robots-txt/useful-robots-txt-rules
+User-agent: Googlebot-Image
+Disallow: /
+
+# Block all other crawlers.
 User-agent: *
 Disallow: /
+
+# Disallow crawling of files of a specific file type.
+# https://developers.google.com/crawling/docs/robots-txt/useful-robots-txt-rules
+User-agent: Googlebot
+Disallow: /*.pdf$
 
 Sitemap: https://leonardlee.net/sitemap.xml
