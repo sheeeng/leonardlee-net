@@ -7,6 +7,7 @@ User-agent: Bingbot
 Allow: /
 
 # Block Wayback Machine / Internet Archive.
+# https://crawlercheck.com/directory/operators/internet-archive
 User-agent: ia_archiver
 Disallow: /
 
@@ -19,6 +20,15 @@ Disallow: /
 # Block all images on your site from Google Images.
 # https://developers.google.com/crawling/docs/robots-txt/useful-robots-txt-rules
 User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: Googlebot-Video
+Disallow: /
+
+User-agent: Googlebot-News
+Disallow: /
+
+User-agent: Googlebot-Discovery
 Disallow: /
 
 # Block all other crawlers.
