@@ -1,5 +1,5 @@
 - id: 1
-  title: "Lars and the Real Girl: \"Meeting Bianca\" Scene"
+  title: 'Lars and the Real Girl: "Meeting Bianca" Scene'
   # thumbnail: "https://img.youtube.com/vi/gI2I_A2LVCU/maxresdefault.jpg"
   thumbnail: "reel1-thumb.webp"
   youtube_id: "gI2I_A2LVCU"
@@ -18,9 +18,8 @@
   year: "2025"
   director: "David Nutter"
   director_url: "https://www.imdb.com/name/nm0638354/"
-
 - id: 2
-  title: "Mad Men: The Strategy (Season 7, Episode 6): \"Burger Chef's Pitch\" Scene"
+  title: 'Mad Men: The Strategy (Season 7, Episode 6): "Burger Chef''s Pitch" Scene'
   # thumbnail: "https://img.youtube.com/vi/04mzPn2_APg/maxresdefault.jpg"
   thumbnail: "reel2-thumb.webp"
   youtube_id: "04mzPn2_APg"
@@ -33,11 +32,39 @@
     • Mari Amalie Hove (Margaret "Peggy" Olson)
     • Leonard Sheng Sheng Lee (Donald Francis "Don" Draper)
   production: "David Nutter"
-  role: "Donald Francis \"Don\" Draper"
+  role: 'Donald Francis "Don" Draper'
   year: "2025"
   director: "David Nutter"
   director_url: "https://www.imdb.com/name/nm0638354/"
-
+- id: 3
+  title: "Camera Techniques Workshop"
+  # thumbnail: "https://img.youtube.com/vi/a83ByeenE5c/maxresdefault.jpg"
+  thumbnail: "reel3-thumb.webp"
+  youtube_id: "a83ByeenE5c"
+  vimeo_id: ""
+  video_url: ""
+  description: |
+    The camera is not neutral. It reads thoughts, breathing, timing, silence, and reveals everything that is not true. In this intensive and practical workshop between February 7-8, 2026, students learn to work with the camera, not against it: how the angle, lenses, movement, gaze, pace and silence affect the performance, and how to adjust yourself precisely on set.
+  production: "Kristofer Hivju"
+  role: ""
+  year: "2026"
+  director: "Kristofer Hivju"
+  director_url: "https://www.imdb.com/name/nm1970465/"
+- id: 4
+  title: "Camera Techniques Workshop Self-Tape"
+  # thumbnail: "https://img.youtube.com/vi/ama51TYCSJk/maxresdefault.jpg"
+  thumbnail: "reel4-thumb.webp"
+  youtube_id: "ama51TYCSJk"
+  vimeo_id: ""
+  video_url: ""
+  description: |
+    The camera is not neutral. It reads thoughts, breathing, timing, silence, and reveals everything that is not true. In this intensive and practical workshop between February 7-8, 2026, students learn to work with the camera, not against it: how the angle, lenses, movement, gaze, pace and silence affect the performance, and how to adjust yourself precisely on set.
+  production: "Kristofer Hivju"
+  role: ""
+  year: "2026"
+  director: "Kristofer Hivju"
+  director_url: "https://www.imdb.com/name/nm1970465/"
+  #
 # - id: 3
 #   title: "Film & TV Highlights"
 #   thumbnail: "reel3-thumb.jpg"
