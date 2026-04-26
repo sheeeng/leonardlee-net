@@ -97,9 +97,161 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Let it snow effect
-  createSnowfall();
+  // Seasonal effect: sakura in spring (March through May), snow otherwise.
+  const month = new Date().getMonth(); // 0-indexed: 0 = January, 11 = December
+  if (month >= 2 && month <= 4) {
+    createSakura();
+    const sakuraBtn = document.getElementById('sakuraToggle');
+    if (sakuraBtn) sakuraBtn.style.display = '';
+  } else {
+    createSnowfall();
+    const snowBtn = document.getElementById('snowToggle');
+    if (snowBtn) snowBtn.style.display = '';
+  }
 });
+
+// Sakura Animation
+function createSakura() {
+  const container = document.createElement('div');
+  container.id = 'sakuraContainer';
+  container.style.position = 'fixed';
+  container.style.top = '0';
+  container.style.left = '0';
+  container.style.width = '100%';
+  container.style.height = '100%';
+  container.style.pointerEvents = 'none';
+  container.style.zIndex = '9999';
+  container.style.overflow = 'hidden';
+  document.body.appendChild(container);
+
+  let petals = [];
+  let animationId;
+
+  function Petal() {
+    this.element = document.createElement('span');
+    this.element.textContent = '🌸';
+    this.element.style.position = 'absolute';
+    this.element.style.pointerEvents = 'none';
+    this.element.style.userSelect = 'none';
+    this.element.style.lineHeight = '1';
+
+    this.x = Math.random() * window.innerWidth;
+    this.y = Math.random() * -window.innerHeight;
+    this.size = Math.random() * 15 + 10;
+    this.speed = Math.random() * 0.8 + 0.3;
+    this.wind = Math.random() * 0.3 - 0.15;
+    this.opacity = Math.random() * 0.5 + 0.5;
+    this.rotation = Math.random() * 360;
+    this.rotationSpeed = Math.random() * 2 - 1;
+    this.swingAngle = Math.random() * Math.PI * 2;
+    this.swingSpeed = Math.random() * 0.02 + 0.01;
+    this.swingRadius = Math.random() * 1.5 + 0.5;
+
+    this.element.style.fontSize = this.size + 'px';
+    this.element.style.opacity = this.opacity;
+    this.element.style.left = this.x + 'px';
+    this.element.style.top = this.y + 'px';
+    this.element.style.transform = `rotate(${this.rotation}deg)`;
+
+    container.appendChild(this.element);
+  }
+
+  Petal.prototype.update = function () {
+    this.swingAngle += this.swingSpeed;
+    this.y += this.speed;
+    this.x += this.wind + Math.sin(this.swingAngle) * this.swingRadius;
+    this.rotation += this.rotationSpeed;
+
+    if (this.y > window.innerHeight) {
+      this.y = -20;
+      this.x = Math.random() * window.innerWidth;
+    }
+
+    if (this.x > window.innerWidth) {
+      this.x = 0;
+    } else if (this.x < 0) {
+      this.x = window.innerWidth;
+    }
+
+    this.element.style.left = this.x + 'px';
+    this.element.style.top = this.y + 'px';
+    this.element.style.transform = `rotate(${this.rotation}deg)`;
+  };
+
+  function initPetals() {
+    petals.forEach(petal => {
+      if (petal.element.parentNode) {
+        petal.element.parentNode.removeChild(petal.element);
+      }
+    });
+
+    const numberOfPetals = Math.floor((window.innerWidth * window.innerHeight) / 15000);
+    petals = [];
+    for (let i = 0; i < numberOfPetals; i++) {
+      petals.push(new Petal());
+    }
+  }
+
+  function animate() {
+    petals.forEach(petal => petal.update());
+    animationId = requestAnimationFrame(animate);
+  }
+
+  initPetals();
+
+  container.style.display = 'none';
+
+  window.addEventListener('resize', function () {
+    initPetals();
+  });
+
+  function toggleSakura() {
+    if (container.style.display === 'none') {
+      container.style.display = 'block';
+      animate();
+      return true;
+    } else {
+      container.style.display = 'none';
+      cancelAnimationFrame(animationId);
+      return false;
+    }
+  }
+
+  const toggleButton = document.getElementById('sakuraToggle');
+  if (toggleButton) {
+    toggleButton.addEventListener('click', function () {
+      const isBlossoming = toggleSakura();
+      const icon = this.querySelector('.sakura-icon');
+      if (isBlossoming) {
+        this.classList.add('active');
+        if (icon) icon.style.animation = 'spin 2s linear infinite';
+      } else {
+        this.classList.remove('active');
+        if (icon) icon.style.animation = 'none';
+      }
+    });
+    toggleButton.classList.remove('active');
+    const icon = toggleButton.querySelector('.sakura-icon');
+    if (icon) icon.style.animation = 'none';
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'S') {
+      const isBlossoming = toggleSakura();
+      const toggleButton = document.getElementById('sakuraToggle');
+      if (toggleButton) {
+        const icon = toggleButton.querySelector('.sakura-icon');
+        if (isBlossoming) {
+          toggleButton.classList.add('active');
+          if (icon) icon.style.animation = 'spin 2s linear infinite';
+        } else {
+          toggleButton.classList.remove('active');
+          if (icon) icon.style.animation = 'none';
+        }
+      }
+    }
+  });
+}
 
 // Snowfall Animation
 function createSnowfall() {
