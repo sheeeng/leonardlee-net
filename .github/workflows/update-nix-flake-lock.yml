@@ -4,10 +4,9 @@ on:
   push:
     branches:
       - main
-      - unstable
-  workflow_dispatch:
   schedule:
     - cron: "1 2 * * 3" # “At 02:01 on Wednesday.”
+  workflow_dispatch:
 
 permissions: {}
 
