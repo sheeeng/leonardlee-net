@@ -7,15 +7,16 @@ on:
   # For Branch-Protection check. Only the default branch is supported. See
   # https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection
   branch_protection_rule:
+  push:
+    branches:
+      - unstable
+      - main
   # To guarantee Maintained check is occasionally updated. See
   # https://github.com/ossf/scorecard/blob/main/docs/checks.md#maintained
   schedule:
-    - cron: "14 03 * * 1-5" # “At 03:14 on every day-of-week from Monday through Friday.”
-  push:
-    branches: ["unstable", "main"]
+    - cron: "3 14 * * 2" # “At 14:03 on Tuesday.”
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   scorecard:
