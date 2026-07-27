@@ -41,7 +41,7 @@
           {%- assign build_sha = build_revision | slice: 0, 8 -%}
           Built from
           {%- if site.github.repository_url and build_revision != "local" %}
-          <a href="{{ site.github.repository_url }}/commit/{{ build_revision }}" style="text-decoration: underline;">{{ build_sha }}</a>.
+          <a href="{{ site.github.repository_url }}/commit/{{ build_revision }}">{{ build_sha }}</a>.
           {%- else %}
           {{ build_sha }}.
           {%- endif %}
