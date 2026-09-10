@@ -4,6 +4,9 @@
     "config:best-practices",
     ":disableDependencyDashboard"
   ],
+  "ignorePaths": [
+    "_layouts/default.html"
+  ],
   "lockFileMaintenance": {
     "enabled": true,
     "description": "https://docs.renovatebot.com/configuration-options/#lockfilemaintenance"
